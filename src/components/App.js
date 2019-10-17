@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-// import {connect} from "react-redux";
-// import {addTask, removeTask} from "../actions/tasks.action";
 
 import AddTask from './AddTask';
 import TaskList from './TaskList';

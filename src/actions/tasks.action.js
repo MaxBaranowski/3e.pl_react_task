@@ -28,6 +28,7 @@ export const removeTask = taskID => ({
 export const changeTaskStatus = taskID => ({
     type: TASK_TYPE.CHANGE_STATUS,
     payload: {
+        current: _task.current,
         id: taskID
     }
 });

@@ -20,7 +20,7 @@ class Task extends Component {
                 <h1>{this.props.text}</h1>
                 <small>{this.props.completed ? "completed" : "uncopmleted"}</small>
                 <button onClick={this.props.toggle}>Change status</button>
-                <button onClick={this.props.remove}>x</button>
+                <button onClick={this.props.remove} disabled={!this.props.completed}>x</button>
             </Wrapper>
         );
     }

@@ -10,6 +10,7 @@ export const tasksReducer = (state = initialTasksState, action) => {
         switch (action.type) {
             case TASK_TYPE.ADD_TASK:
                 // console.log(action);
+                if(action.payload.current > state.max) return state;
                 return {
                     ...state,
                     current: action.payload.current,
@@ -20,7 +21,6 @@ export const tasksReducer = (state = initialTasksState, action) => {
                     }]
                 };
             case TASK_TYPE.REMOVE_TASK:
-                // console.log(action)
                 return {
                     ...state,
                     current: action.payload.current,

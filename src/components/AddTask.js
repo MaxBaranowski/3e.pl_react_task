@@ -23,9 +23,12 @@ const AddTask = (props) => {
         <div>
             <h1>Create new task</h1>
             <form onSubmit={onSubmit}>
-                <input type="text" ref={textInput}/>
-                <button type="submit">Add Task</button>
+                <input type="text" ref={textInput} disabled={current === max}/>
+                <button type="submit" disabled={current === max}>Add Task</button>
             </form>
+            {current === max &&
+            <p>You cannot create more then 10 tasks</p>
+            }
             <small>You can create max {max} tasks, {max - current} lefts. </small>
         </div>
     );
