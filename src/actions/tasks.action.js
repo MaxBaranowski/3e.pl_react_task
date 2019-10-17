@@ -1,7 +1,8 @@
 export const TASK_TYPE = {
     ADD_TASK: "ADD_TASK",
     REMOVE_TASK: "REMOVE_TASK",
-    CHANGE_STATUS: "CHANGE_STATUS"
+    CHANGE_STATUS: "CHANGE_STATUS",
+    FETCH_FAKE_DATA: "FETCH_FAKE_DATA"
 };
 
 const _task = {
@@ -12,7 +13,7 @@ export const addTask = taskText => ({
     type: TASK_TYPE.ADD_TASK,
     payload: {
         current: ++_task.current,
-        text: taskText,
+        title: taskText,
         id: _task.current
     }
 });
@@ -33,4 +34,11 @@ export const changeTaskStatus = taskID => ({
     }
 });
 
+export const getTasks = req => ({
+    type: TASK_TYPE.FETCH_FAKE_DATA,
+    payload: {
+        data: req,
+        current: _task.current = req.length
+    }
+});
 

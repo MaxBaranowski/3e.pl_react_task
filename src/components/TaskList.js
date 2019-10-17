@@ -31,6 +31,7 @@ const mapStateToProps = store => {
         tasks: store.tasks.tasks
     }
 };
+
 const mapDispatchToProps = dispatch => ({
     changeTaskStatus: task => dispatch(changeTaskStatus(task)),
     removeTask: task => dispatch(removeTask(task))

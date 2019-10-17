@@ -17,7 +17,7 @@ class Task extends Component {
         return (
             <Wrapper>
                 <small>{this.props.id}</small>
-                <h1>{this.props.text}</h1>
+                <h1>{this.props.title}</h1>
                 <small>{this.props.completed ? "completed" : "uncopmleted"}</small>
                 <button onClick={this.props.toggle}>Change status</button>
                 <button onClick={this.props.remove} disabled={!this.props.completed}>x</button>

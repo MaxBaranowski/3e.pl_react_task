@@ -16,7 +16,7 @@ export const tasksReducer = (state = initialTasksState, action) => {
                     current: action.payload.current,
                     tasks: [...state.tasks, {
                         id: action.payload.id,
-                        text: action.payload.text,
+                        title: action.payload.title,
                         completed: false
                     }]
                 };
@@ -32,7 +32,6 @@ export const tasksReducer = (state = initialTasksState, action) => {
                     })
                 };
             case TASK_TYPE.CHANGE_STATUS:
-                // console.log(action.payload.id)
                 return {
                     ...state,
                     current: action.payload.current,
@@ -41,6 +40,12 @@ export const tasksReducer = (state = initialTasksState, action) => {
                             ? {...task, completed: !task.completed}
                             : task
                     )
+                };
+            case TASK_TYPE.FETCH_FAKE_DATA:
+                return {
+                    ...state,
+                    current: action.payload.current,
+                    tasks: action.payload.data
                 };
             default:
                 return state;
