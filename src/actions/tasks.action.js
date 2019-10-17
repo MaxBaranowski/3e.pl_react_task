@@ -8,23 +8,28 @@ const _task = {
     current: 0
 };
 
-export const addTask = task => ({
+export const addTask = taskText => ({
     type: TASK_TYPE.ADD_TASK,
     payload: {
-        current: _task.current++
+        current: ++_task.current,
+        text: taskText,
+        id: _task.current
     }
 });
 
-export const removeTask = task => ({
+export const removeTask = taskID => ({
     type: TASK_TYPE.REMOVE_TASK,
     payload: {
-        current: _task.current--
+        current: --_task.current,
+        id: taskID
     }
 });
 
 export const changeTaskStatus = taskID => ({
-    type: TASK_TYPE.ADD_TASK,
-    taskID
+    type: TASK_TYPE.CHANGE_STATUS,
+    payload: {
+        id: taskID
+    }
 });
 
 

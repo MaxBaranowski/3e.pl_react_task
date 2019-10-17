@@ -1,32 +1,29 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {addTask, removeTask} from "../actions/tasks.action";
+// import {connect} from "react-redux";
+// import {addTask, removeTask} from "../actions/tasks.action";
+
+import AddTask from './AddTask';
+import TaskList from './TaskList';
+
+import styled from "styled-components";
+
+const Application = styled.section`
+display: flex;
+    flex-direction: column;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+`;
 
 class App extends Component {
     render() {
-        const {tasks} = this.props;
+        // const {tasks} = this.props;
         return (
-            <div>
-                <pre>
-                store: {JSON.stringify(tasks, null, 2)}
-              </pre>
-                <button onClick={this.props.addTask}>add</button>
-                <button onClick={this.props.removeTask}>remove</button>
-            </div>
+            <Application>
+                <AddTask/>
+                <TaskList/>
+            </Application>
         );
     }
 }
-
-const mapStateToProps = store => {
-    // console.log(store);
-    return {
-        tasks: store.tasks
-    }
-};
-
-const mapDispatchToProps = dispatch => ({
-    addTask: task => dispatch(addTask(task)),
-    removeTask: task => dispatch(removeTask(task))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+ export default App;
