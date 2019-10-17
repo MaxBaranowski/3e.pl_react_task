@@ -14,6 +14,7 @@ const Application = styled.section`
     width: 800px;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 `;
 
 class App extends Component {

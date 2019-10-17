@@ -1,6 +1,41 @@
 import React from 'react';
 import {addTask} from "../actions/tasks.action";
 import {connect} from "react-redux";
+import styled from "styled-components";
+
+const AddTaskTag = styled.section`
+    h1{
+        text-align: center;
+    }
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        input{
+            height: 30px;
+            width: 450px;
+            margin-bottom: 20px;
+            padding-left: 5px;
+            font-size: 16px;
+        }
+        button[type='submit']{
+            width: 250px;
+            border: 1px solid #8bc34a;
+            height: 30px;
+            background-color: #8bc34a;
+            margin: 0 auto 20px auto;
+            cursor: pointer;
+            &:hover{
+                box-shadow: 2px 1px 3px 0px #65962c;
+                border-color: #65962c;
+            }
+        }
+    }
+    
+    p{
+        text-align: center;
+    }
+`;
 
 const AddTask = (props) => {
     const {current, max} = props.tasks;
@@ -20,7 +55,7 @@ const AddTask = (props) => {
 
 
     return (
-        <div>
+        <AddTaskTag>
             <h1>Create new task</h1>
             <form onSubmit={onSubmit}>
                 <input type="text" ref={textInput} disabled={current === max}/>
@@ -29,8 +64,8 @@ const AddTask = (props) => {
             {current === max &&
             <p>You cannot create more then 10 tasks</p>
             }
-            <small>You can create max {max} tasks, {max - current} lefts. </small>
-        </div>
+            <p>You can create max {max} tasks, {max - current} lefts. </p>
+        </AddTaskTag>
     );
 };
 
