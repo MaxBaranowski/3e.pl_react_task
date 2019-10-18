@@ -4,9 +4,7 @@ import AddTask from './AddTask';
 import TaskList from './TaskList';
 
 import styled from "styled-components";
-import {getTasks} from "../actions/tasks.action";
 import {connect} from "react-redux";
-import axios from 'axios';
 
 const Application = styled.section`
     display: flex;
@@ -19,11 +17,7 @@ const Application = styled.section`
 
 class App extends Component {
     componentDidMount() {
-        axios.get(`https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5`)
-            .then(res => {
-                // console.log(1, res.data);
-                this.props.getTasks(res.data)
-            })
+        this.props.getTasks();
     }
 
     render() {
@@ -45,7 +39,7 @@ const mapStateToProps = store => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getTasks: req => dispatch(getTasks(req))
+    getTasks: () => dispatch({type: "GET_TASKS"})
 });
 
 

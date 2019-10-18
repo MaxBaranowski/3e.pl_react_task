@@ -50,11 +50,13 @@ class Task extends Component {
             <Wrapper onClick={this.props.toggle}>
                 <small className="number">N. {this.props.id}</small>
                 {this.props.completed &&
-                    <small className="completed">&#10003;</small>
+                <small className="completed">&#10003;</small>
                 }
                 <h1>{this.props.title}</h1>
                 {/*<button onClick={this.props.toggle}>Change status</button>*/}
-                <button className="remove" onClick={this.props.remove} disabled={!this.props.completed}>&#10060;</button>
+                <button className="remove" onClick={this.props.remove}
+                        disabled={!this.props.completed}>&#10060;
+                </button>
             </Wrapper>
         );
     }
