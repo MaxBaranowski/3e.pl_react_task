@@ -7,22 +7,28 @@ import {changeTaskStatus, removeTask} from "../actions/tasks.action";
 const TodoList = (props) => {
 
     let tasks = props.tasks;
-    return (
-        <ul>
-            {tasks.map(task => {
-                    // console.log(task)
-                    return (
-                        <Task
-                            key={task.id}
-                            {...task}
-                            toggle={() => props.changeTaskStatus(task.id)}
-                            remove={() => props.removeTask(task.id)}
-                        />
-                    )
-                }
-            )}
-        </ul>
-    )
+    if (tasks && tasks.length) {
+        return (
+            <ul>
+                {tasks.map(task => {
+                        // console.log(task)
+                        return (
+                            <Task
+                                key={task.id}
+                                {...task}
+                                toggle={() => props.changeTaskStatus(task.id)}
+                                remove={() => props.removeTask(task.id)}
+                            />
+                        )
+                    }
+                )}
+            </ul>
+        )
+    } else {
+        return (
+            <p>No tasks</p>
+        )
+    }
 };
 
 const mapStateToProps = store => {
@@ -38,4 +44,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
