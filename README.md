@@ -17,3 +17,5 @@ Bonus:
 
 • For component style use styled-components. (https://github.com/styled-
 components/styled-components)
+
+<img width="1325" alt="Screenshot 2023-01-22 at 21 54 01" src="https://user-images.githubusercontent.com/17856507/213939916-686c23d0-8c63-4d58-b161-cc8d779e86ed.png">
